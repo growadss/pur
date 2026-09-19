@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Trade With Purab — free stock market education community on Telegram.">
+<title>Trade With Purab | Official Community</title>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+
+body{
+  min-height:100vh;
+  min-height:100dvh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:22px 16px;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 15% 15%,rgba(124,58,237,.35),transparent 45%),
+    radial-gradient(circle at 88% 20%,rgba(6,182,212,.28),transparent 45%),
+    radial-gradient(circle at 50% 95%,rgba(236,72,153,.22),transparent 50%),
+    #0a0a1f;
+  color:#f4f2ff;
+}
+
+/* floating ambient orbs for depth */
+.orb{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(2px);
+  opacity:.5;
+  pointer-events:none;
+  animation:float 7s ease-in-out infinite;
+}
+.orb1{width:10px;height:10px;background:#a78bfa;top:12%;left:8%;animation-delay:0s}
+.orb2{width:6px;height:6px;background:#22d3ee;top:75%;left:85%;animation-delay:1.5s}
+.orb3{width:8px;height:8px;background:#f472b6;top:20%;left:88%;animation-delay:3s}
+.orb4{width:5px;height:5px;background:#facc15;top:85%;left:12%;animation-delay:2s}
+@keyframes float{
+  0%,100%{transform:translateY(0) translateX(0)}
+  50%{transform:translateY(-18px) translateX(10px)}
+}
+
+.wrap{width:100%;max-width:400px;position:relative;perspective:1200px}
+
+.card{
+  background:rgba(255,255,255,.07);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.55),
+    0 2px 0 rgba(255,255,255,.12) inset,
+    0 -30px 60px rgba(124,58,237,.08) inset;
+  transform:rotateX(2deg);
+}
+
+.top-glow{
+  height:4px;
+  background:linear-gradient(90deg,#a78bfa,#22d3ee,#f472b6,#facc15);
+  background-size:300% 100%;
+  animation:shift 4s linear infinite;
+}
+@keyframes shift{
+  0%{background-position:0% 0%}
+  100%{background-position:300% 0%}
+}
+
+.hero{
+  text-align:center;
+  padding:34px 24px 20px;
+}
+
+.avatar-ring{
+  width:90px;height:90px;
+  border-radius:50%;
+  margin:0 auto 16px;
+  padding:3px;
+  background:conic-gradient(from 0deg,#a78bfa,#22d3ee,#f472b6,#facc15,#a78bfa);
+  animation:spin 6s linear infinite;
+  display:flex;align-items:center;justify-content:center;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.avatar{
+  width:100%;height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  background:#151033;
+  border:3px solid #0a0a1f;
+  display:block;
+}
+
+.verified-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  background:rgba(34,211,238,.12);
+  border:1px solid rgba(34,211,238,.35);
+  color:#67e8f9;
+  font-size:9.5px;
+  font-weight:800;
+  letter-spacing:.4px;
+  padding:5px 12px;
+  border-radius:20px;
+  margin-bottom:12px;
+}
+
+h1{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:.2px;
+  background:linear-gradient(135deg,#ffffff,#c4b5fd);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  margin-bottom:6px;
+}
+.sub{font-size:12px;color:#c9c3f0;line-height:1.6;max-width:300px;margin:0 auto}
+
+.stat-row{
+  display:flex;
+  gap:10px;
+  padding:0 22px;
+  margin-top:22px;
+  margin-bottom:22px;
+}
+.stat{
+  flex:1;
+  text-align:center;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;
+  padding:12px 6px;
+}
+.stat b{display:block;font-size:15px;font-weight:900;color:#c4b5fd}
+.stat span{display:block;font-size:8.5px;color:#9b93c9;margin-top:3px;letter-spacing:.3px}
+
+.body-pad{padding:0 22px 24px}
+
+/* 3D premium CTA button */
+.cta{
+  position:relative;
+  display:block;
+  text-decoration:none;
+  text-align:center;
+  padding:18px 16px;
+  border-radius:18px;
+  background:linear-gradient(180deg,#8b5cf6 0%,#6d28d9 60%,#5b21b6 100%);
+  color:#fff;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.5) inset,
+    0 -4px 10px rgba(0,0,0,.25) inset,
+    0 18px 34px rgba(109,40,217,.5),
+    0 4px 0 #3f1d8c;
+  transform:translateY(0);
+  transition:transform .12s ease, box-shadow .12s ease;
+  border:1px solid rgba(255,255,255,.18);
+  overflow:hidden;
+}
+.cta::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;height:50%;
+  background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,0));
+  pointer-events:none;
+}
+.cta:active{
+  transform:translateY(3px);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.4) inset,
+    0 -2px 6px rgba(0,0,0,.25) inset,
+    0 6px 14px rgba(109,40,217,.4),
+    0 1px 0 #3f1d8c;
+}
+.cta-main{position:relative;display:block;font-size:15px;font-weight:900;letter-spacing:.2px}
+.cta-sub{position:relative;display:block;margin-top:4px;font-size:10.5px;color:rgba(255,255,255,.8)}
+
+.timer-line{
+  text-align:center;
+  margin-top:14px;
+  font-size:10px;
+  color:#9b93c9;
+}
+.timer-line b{color:#c4b5fd}
+
+.feature-list{margin-top:22px}
+.feat-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:11px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.feat-row:last-child{border-bottom:none}
+.feat-ic{
+  width:32px;height:32px;
+  flex-shrink:0;
+  border-radius:10px;
+  background:rgba(167,139,250,.14);
+  border:1px solid rgba(167,139,250,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;
+}
+.feat-text h3{font-size:12px;font-weight:800;color:#f4f2ff;margin-bottom:1px}
+.feat-text p{font-size:10px;color:#9b93c9;line-height:1.4}
+
+.disclaimer{
+  margin-top:20px;
+  padding-top:15px;
+  border-top:1px solid rgba(255,255,255,.08);
+  font-size:8.5px;
+  line-height:1.65;
+  color:#6b6499;
+  text-align:center;
+}
+
+.footer{
+  text-align:center;
+  padding:0 22px 22px;
+  font-size:8.5px;
+  color:#4d4780;
+}
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1084079851183047');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1084079851183047&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+<div class="orb orb4"></div>
+
+<div class="wrap">
+  <div class="card">
+    <div class="top-glow"></div>
+
+    <div class="hero">
+      <div class="avatar-ring">
+        <img src="purab.jpg" class="avatar" alt="Trade With Purab" width="84" height="84">
+      </div>
+      <div class="verified-badge">✓ VERIFIED COMMUNITY</div>
+      <h1>TRADE WITH PURAB</h1>
+      <div class="sub">Premium stock market education — learn to read markets, not gamble on them.</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><b>FREE</b><span>NO COST</span></div>
+      <div class="stat"><b>DAILY</b><span>MARKET NOTES</span></div>
+      <div class="stat"><b>100%</b><span>BEGINNER OK</span></div>
+    </div>
+
+    <div class="body-pad">
+      <a class="cta" id="telegramBtn" href="https://t.me/+eIy-TsShgOw5Nzll" rel="noopener noreferrer">
+        <span class="cta-main">JOIN FREE TELEGRAM COMMUNITY</span>
+        <span class="cta-sub">Instant access • 100% free</span>
+      </a>
+      <div class="timer-line">Auto-redirecting in <b><span id="count">30</span>s</b>...</div>
+
+      <div class="feature-list">
+        <div class="feat-row"><div class="feat-ic">📊</div><div class="feat-text"><h3>Daily Market Insights</h3><p>Simple daily notes on market movement</p></div></div>
+        <div class="feat-row"><div class="feat-ic">📘</div><div class="feat-text"><h3>Free Structured Learning</h3><p>Step-by-step, beginner to confident</p></div></div>
+        <div class="feat-row"><div class="feat-ic">💬</div><div class="feat-text"><h3>Ask Anything</h3><p>Get your doubts answered by the community</p></div></div>
+        <div class="feat-row"><div class="feat-ic">🎯</div><div class="feat-text"><h3>No Shortcuts, No Hype</h3><p>Honest, education-first approach</p></div></div>
+      </div>
+
+      <div class="disclaimer">
+        <strong>Disclaimer:</strong> This platform is for educational and informational purposes only. We are not a SEBI-registered investment advisor. Nothing here constitutes financial advice, and no returns are guaranteed. Stock market investments carry risk — please consult a qualified advisor and do your own research before investing.
+      </div>
+    </div>
+
+    <div class="footer">© 2026 Trade With Purab • Educational Community</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById("telegramBtn");
+  var link = "https://t.me/+eIy-TsShgOw5Nzll";
+  var counter = document.getElementById("count");
+  var time = 30;
+
+  // Subscribe fires only on a genuine click — never inside the
+  // auto-redirect timer — to keep click data clean of fake/auto clicks.
+  btn.addEventListener("click", function(){
+    // No preventDefault, no setTimeout — native href navigates instantly
+    // so in-app browsers (Instagram/Facebook) never block it.
+    if(window.fbq){
+      fbq('track','Subscribe',{content_name:'Trade With Purab Telegram Community'},{eventID:'telegram_subscribe_'+Date.now()});
+    }
+  });
+
+  var t = setInterval(function(){
+    time--;
+    counter.textContent = time;
+    if(time <= 0){
+      clearInterval(t);
+      window.location.href = link;
+    }
+  }, 1000);
+})();
+</script>
+
+</body>
+</html>
